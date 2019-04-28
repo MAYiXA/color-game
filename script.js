@@ -1,1 +1,0 @@
-const hej = document.querySelector('h1');
