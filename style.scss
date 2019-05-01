@@ -1,30 +1,68 @@
 // colors
-$grey: #333;
+$bg: black;
+$default: white;
+$banner: BurlyWood;
+$button: #ba996f;
+
+// fonts
+$painted: 'Knewave';
+$sans: 'Varela Round';
 
 body {
-    background-color: $grey;
+    background-color: $bg;
+    margin: 0;
+    font-family: $sans;
 }
+
 h1 {
-    color: white;
+    margin: 0;
+    padding: 1em;
+    color: $default;
+    background-color: $banner;
+    font-family: $painted;
+    font-weight: 400;
+    font-size: 2.5em;
+    text-shadow: 1px 1px 5px black;
     #color-display {
-        color: red;
+        color: black;
+        font-family: $sans;
+        text-shadow: 1px 1px 5px $default;
     }
 }
+
 nav {
+    background-color: $default;
+    font-size: .9em;
+    #new {
+        background-color: inherit;
+        border: none;
+        font-family: $sans;
+        padding: 1em;
+        &:active,
+        &:focus {
+            font-weight: 600;
+        }
+        &:hover {
+            background-color: $button;
+            color: $default;
+        }
+    }
     #result {
-        color: white;
+        padding: 1em;
+        font-weight: 600;
     }
 }
+
 .container {
-    margin: 0 auto;
+    margin: 1em auto;
     display: flex;
     flex-flow: row wrap;
     max-width: 40em;
-    .square {
+    .circles {
         width: 30%;
         margin: 1.66%;
-        background-color: purple;
+        background-color: $default;
         padding-bottom: 30%;
-        border-radius: 1em;
+        border-radius: 50%;
     }
 }

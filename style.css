@@ -1,30 +1,59 @@
 body {
-  background-color: #333;
+  background-color: black;
+  margin: 0;
+  font-family: "Varela Round";
 }
 
 h1 {
+  margin: 0;
+  padding: 1em;
   color: white;
+  background-color: BurlyWood;
+  font-family: "Knewave";
+  font-weight: 400;
+  font-size: 2.5em;
+  text-shadow: 1px 1px 5px black;
 }
 h1 #color-display {
-  color: red;
+  color: black;
+  font-family: "Varela Round";
+  text-shadow: 1px 1px 5px white;
 }
 
-nav #result {
+nav {
+  background-color: white;
+  font-size: 0.9em;
+}
+nav #new {
+  background-color: inherit;
+  border: none;
+  font-family: "Varela Round";
+  padding: 1em;
+}
+nav #new:active, nav #new:focus {
+  font-weight: 600;
+}
+nav #new:hover {
+  background-color: #ba996f;
   color: white;
+}
+nav #result {
+  padding: 1em;
+  font-weight: 600;
 }
 
 .container {
-  margin: 0 auto;
+  margin: 1em auto;
   display: flex;
   flex-flow: row wrap;
   max-width: 40em;
 }
-.container .square {
+.container .circles {
   width: 30%;
   margin: 1.66%;
-  background-color: purple;
+  background-color: white;
   padding-bottom: 30%;
-  border-radius: 1em;
+  border-radius: 50%;
 }
 
 /*# sourceMappingURL=style.css.map */
