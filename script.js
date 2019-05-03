@@ -2,6 +2,7 @@ const circles = document.querySelectorAll('.circles');
 const colorDisplay = document.querySelector('#color-display');
 const msgDisplay = document.querySelector('#result');
 const h1 = document.querySelector('h1');
+const reset = document.querySelector('#reset');
 
 const randomColor = () => {
   const r = Math.floor(Math.random() * 256);
@@ -12,41 +13,41 @@ const randomColor = () => {
 
 const generateRandomColors = ((num) => {
   const arr = [];
-  for (let j = 0; j < num; j += 1) {
+  for (let i = 0; i < num; i += 1) {
     arr.push(randomColor());
   }
   return arr;
 });
 
-const colors = generateRandomColors(6);
+let colors = generateRandomColors(6);
 
 function pickColor() {
   const random = Math.floor(Math.random() * colors.length);
   return colors[random];
 }
 
-const pickedColor = pickColor();
+let pickedColor = pickColor();
 
 const changeColor = (color) => {
-  for (let w = 0; w < circles.length; w += 1) {
-    circles[w].style.backgroundColor = color;
+  for (let i = 0; i < circles.length; i += 1) {
+    circles[i].style.backgroundColor = color;
   }
 };
 
 colorDisplay.textContent = pickedColor;
 
 for (let i = 0; i < circles.length; i += 1) {
-  // inital colors for the squares
+  // inital colors
   circles[i].style.backgroundColor = colors[i];
-
-  // click listeners
+  // click listener
   circles[i].addEventListener('click', () => {
-    // get color of picked square
+    // get color of picked
     const clickedColor = circles[i].style.backgroundColor;
 
     // compare color to pickedColor
     if (clickedColor === pickedColor) {
       msgDisplay.textContent = 'YAY! YOU GOT IT RIGHT!';
+      reset.textContent = 'Play again?';
       changeColor(clickedColor);
       h1.style.backgroundColor = clickedColor;
     } else {
@@ -55,3 +56,15 @@ for (let i = 0; i < circles.length; i += 1) {
     }
   });
 }
+
+reset.addEventListener('click', () => {
+  colors = generateRandomColors(6);
+  pickedColor = pickColor();
+  colorDisplay.textContent = pickedColor;
+  msgDisplay.textContent = '';
+  reset.textContent = 'New game';
+  h1.style.backgroundColor = 'BurlyWood';
+  for (let i = 0; i < circles.length; i += 1) {
+    circles[i].style.backgroundColor = colors[i];
+  }
+});

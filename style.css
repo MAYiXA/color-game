@@ -6,6 +6,7 @@ body {
 
 h1 {
   margin: 0;
+  text-align: center;
   padding: 1em;
   color: white;
   background-color: BurlyWood;
@@ -23,6 +24,7 @@ h1 #color-display {
 nav {
   background-color: white;
   font-size: 0.9em;
+  text-align: center;
 }
 nav #new {
   background-color: inherit;
