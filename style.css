@@ -4,6 +4,21 @@ body {
   font-family: "Varela Round";
 }
 
+button {
+  background-color: white;
+  color: BurlyWood;
+  border: none;
+  font-family: "Varela Round";
+  padding: 1em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.selected {
+  background-color: BurlyWood;
+  color: white;
+}
+
 h1 {
   margin: 0;
   text-align: center;
@@ -26,17 +41,11 @@ nav {
   font-size: 0.9em;
   text-align: center;
 }
-nav #new {
-  background-color: inherit;
-  border: none;
-  font-family: "Varela Round";
-  padding: 1em;
-}
-nav #new:active, nav #new:focus {
+nav #reset:active, nav #reset:focus {
   font-weight: 600;
 }
-nav #new:hover {
-  background-color: #ba996f;
+nav #reset:hover {
+  background-color: BurlyWood;
   color: white;
 }
 nav #result {

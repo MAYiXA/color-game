@@ -3,6 +3,8 @@ const colorDisplay = document.querySelector('#color-display');
 const msgDisplay = document.querySelector('#result');
 const h1 = document.querySelector('h1');
 const reset = document.querySelector('#reset');
+const easy = document.querySelector('#easy');
+const hard = document.querySelector('#hard');
 
 const randomColor = () => {
   const r = Math.floor(Math.random() * 256);
@@ -57,14 +59,48 @@ for (let i = 0; i < circles.length; i += 1) {
   });
 }
 
-reset.addEventListener('click', () => {
-  colors = generateRandomColors(6);
-  pickedColor = pickColor();
-  colorDisplay.textContent = pickedColor;
-  msgDisplay.textContent = '';
-  reset.textContent = 'New game';
-  h1.style.backgroundColor = 'BurlyWood';
+const resetGame = () => {
+  if (easy.classList.contains('selected')) {
+    colors = generateRandomColors(3);
+    pickedColor = pickColor();
+    colorDisplay.textContent = pickedColor;
+    msgDisplay.textContent = '';
+    reset.textContent = 'New game';
+    h1.style.backgroundColor = 'BurlyWood';
+    for (let i = 0; i < circles.length; i += 1) {
+      if (colors[i]) {
+        circles[i].style.backgroundColor = colors[i];
+      } else {
+        circles[i].style.display = 'none';
+      }
+    }
+  } else {
+    colors = generateRandomColors(6);
+    pickedColor = pickColor();
+    colorDisplay.textContent = pickedColor;
+    msgDisplay.textContent = '';
+    reset.textContent = 'New game';
+    h1.style.backgroundColor = 'BurlyWood';
+    for (let i = 0; i < circles.length; i += 1) {
+      circles[i].style.backgroundColor = colors[i];
+    }
+  }
+};
+
+reset.addEventListener('click', resetGame);
+
+easy.addEventListener('click', () => {
+  hard.classList.remove('selected');
+  easy.classList.add('selected');
+  resetGame();
+});
+
+hard.addEventListener('click', () => {
+  easy.classList.remove('selected');
+  hard.classList.add('selected');
+  resetGame();
   for (let i = 0; i < circles.length; i += 1) {
     circles[i].style.backgroundColor = colors[i];
+    circles[i].style.display = 'block';
   }
 });

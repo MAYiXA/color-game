@@ -1,8 +1,7 @@
 // colors
 $bg: black;
 $default: white;
-$banner: BurlyWood;
-$button: #ba996f;
+$brown: BurlyWood;
 
 // fonts
 $painted: 'Knewave';
@@ -14,12 +13,25 @@ body {
     font-family: $sans;
 }
 
+button {
+    background-color: $default;
+    color: $brown;
+    border: none;
+    font-family: $sans;
+    padding: 1em;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.selected {
+    background-color: $brown;
+    color: $default;
+}
 h1 {
     margin: 0;
     text-align: center;
     padding: 1em;
     color: $default;
-    background-color: $banner;
+    background-color: $brown;
     font-family: $painted;
     font-weight: 400;
     font-size: 2.5em;
@@ -35,17 +47,13 @@ nav {
     background-color: $default;
     font-size: .9em;
     text-align: center;
-    #new {
-        background-color: inherit;
-        border: none;
-        font-family: $sans;
-        padding: 1em;
+    #reset {
         &:active,
         &:focus {
             font-weight: 600;
         }
         &:hover {
-            background-color: $button;
+            background-color: $brown;
             color: $default;
         }
     }
