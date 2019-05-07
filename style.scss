@@ -1,3 +1,5 @@
+$break: "only screen and (min-width: 426px)";
+
 // colors
 $bg: black;
 $default: white;
@@ -5,7 +7,7 @@ $brown: BurlyWood;
 
 // fonts
 $painted: 'Knewave';
-$sans: 'Varela Round';
+$sans: 'Maven Pro';
 
 body {
     background-color: $bg;
@@ -15,56 +17,70 @@ body {
 
 button {
     background-color: $default;
-    color: $brown;
+    color: black;
     border: none;
+    padding: .5em;
     font-family: $sans;
-    padding: 1em;
-    font-weight: 600;
+    font-size: .75em;
     text-transform: uppercase;
+    transition: all .3s;
+    border-radius: 10px 10px 0 0;
+    outline: 0;
+    &:hover {
+        background-color: black;
+        color: $default;
+    }
+    @media #{$break} {
+        padding: .7em;
+        font-size: .9em;
+        border-radius: 15px 15px 0 0;
+    }
 }
+
 .selected {
-    background-color: $brown;
+    background-color: black;
     color: $default;
 }
+
 h1 {
-    margin: 0;
     text-align: center;
-    padding: 1em;
+    margin: 0;
+    padding: .7em;
     color: $default;
     background-color: $brown;
     font-family: $painted;
     font-weight: 400;
-    font-size: 2.5em;
-    text-shadow: 1px 1px 5px black;
+    font-size: 2.2em;
+    text-shadow: 1px 1px 4px black;
+    transition: all .3s;
     #color-display {
         color: black;
+        -webkit-text-stroke: 1px $default;
         font-family: $sans;
-        text-shadow: 1px 1px 5px $default;
+    }
+    @media #{$break} {
+        font-size: 2.5em;
     }
 }
 
 nav {
+    display: flex;
+    justify-content: center;
     background-color: $default;
-    font-size: .9em;
     text-align: center;
-    #reset {
-        &:active,
-        &:focus {
-            font-weight: 600;
-        }
-        &:hover {
-            background-color: $brown;
-            color: $default;
-        }
-    }
     #result {
-        padding: 1em;
-        font-weight: 600;
+        display: inline-block;
+        font-size: .8em;
+        padding: .5em;
+        width: 13em;
+        @media #{$break} {
+            font-size: 1em;
+        }
     }
 }
 
 .container {
-    margin: 1em auto;
+    margin: 1.5em auto;
     display: flex;
     flex-flow: row wrap;
     max-width: 40em;
@@ -74,5 +90,6 @@ nav {
         background-color: $default;
         padding-bottom: 30%;
         border-radius: 50%;
+        transition: background-color .5s;
     }
 }

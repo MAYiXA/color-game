@@ -39,16 +39,12 @@ const changeColor = (color) => {
 colorDisplay.textContent = pickedColor;
 
 for (let i = 0; i < circles.length; i += 1) {
-  // inital colors
   circles[i].style.backgroundColor = colors[i];
-  // click listener
   circles[i].addEventListener('click', () => {
-    // get color of picked
     const clickedColor = circles[i].style.backgroundColor;
-
-    // compare color to pickedColor
     if (clickedColor === pickedColor) {
-      msgDisplay.textContent = 'YAY! YOU GOT IT RIGHT!';
+      msgDisplay.textContent = 'YAY! THAT IS RIGHT!';
+      msgDisplay.style.color = pickedColor;
       reset.textContent = 'Play again?';
       changeColor(clickedColor);
       h1.style.backgroundColor = clickedColor;
@@ -60,13 +56,14 @@ for (let i = 0; i < circles.length; i += 1) {
 }
 
 const resetGame = () => {
+  msgDisplay.style.color = 'black';
+  msgDisplay.textContent = '';
+  reset.textContent = 'New game';
+  h1.style.backgroundColor = 'BurlyWood';
   if (easy.classList.contains('selected')) {
     colors = generateRandomColors(3);
     pickedColor = pickColor();
     colorDisplay.textContent = pickedColor;
-    msgDisplay.textContent = '';
-    reset.textContent = 'New game';
-    h1.style.backgroundColor = 'BurlyWood';
     for (let i = 0; i < circles.length; i += 1) {
       if (colors[i]) {
         circles[i].style.backgroundColor = colors[i];
@@ -78,11 +75,9 @@ const resetGame = () => {
     colors = generateRandomColors(6);
     pickedColor = pickColor();
     colorDisplay.textContent = pickedColor;
-    msgDisplay.textContent = '';
-    reset.textContent = 'New game';
-    h1.style.backgroundColor = 'BurlyWood';
     for (let i = 0; i < circles.length; i += 1) {
       circles[i].style.backgroundColor = colors[i];
+      circles[i].style.display = 'block';
     }
   }
 };
@@ -99,8 +94,4 @@ hard.addEventListener('click', () => {
   easy.classList.remove('selected');
   hard.classList.add('selected');
   resetGame();
-  for (let i = 0; i < circles.length; i += 1) {
-    circles[i].style.backgroundColor = colors[i];
-    circles[i].style.display = 'block';
-  }
 });

@@ -1,60 +1,81 @@
 body {
   background-color: black;
   margin: 0;
-  font-family: "Varela Round";
+  font-family: "Maven Pro";
 }
 
 button {
   background-color: white;
-  color: BurlyWood;
+  color: black;
   border: none;
-  font-family: "Varela Round";
-  padding: 1em;
-  font-weight: 600;
+  padding: 0.5em;
+  font-family: "Maven Pro";
+  font-size: 0.75em;
   text-transform: uppercase;
+  transition: all 0.3s;
+  border-radius: 10px 10px 0 0;
+  outline: 0;
+}
+button:hover {
+  background-color: black;
+  color: white;
+}
+@media only screen and (min-width: 426px) {
+  button {
+    padding: 0.7em;
+    font-size: 0.9em;
+    border-radius: 15px 15px 0 0;
+  }
 }
 
 .selected {
-  background-color: BurlyWood;
+  background-color: black;
   color: white;
 }
 
 h1 {
-  margin: 0;
   text-align: center;
-  padding: 1em;
+  margin: 0;
+  padding: 0.7em;
   color: white;
   background-color: BurlyWood;
   font-family: "Knewave";
   font-weight: 400;
-  font-size: 2.5em;
-  text-shadow: 1px 1px 5px black;
+  font-size: 2.2em;
+  text-shadow: 1px 1px 4px black;
+  transition: all 0.3s;
 }
 h1 #color-display {
   color: black;
-  font-family: "Varela Round";
-  text-shadow: 1px 1px 5px white;
+  -webkit-text-stroke: 1px white;
+  font-family: "Maven Pro";
+}
+@media only screen and (min-width: 426px) {
+  h1 {
+    font-size: 2.5em;
+  }
 }
 
 nav {
+  display: flex;
+  justify-content: center;
   background-color: white;
-  font-size: 0.9em;
   text-align: center;
 }
-nav #reset:active, nav #reset:focus {
-  font-weight: 600;
-}
-nav #reset:hover {
-  background-color: BurlyWood;
-  color: white;
-}
 nav #result {
-  padding: 1em;
-  font-weight: 600;
+  display: inline-block;
+  font-size: 0.8em;
+  padding: 0.5em;
+  width: 13em;
+}
+@media only screen and (min-width: 426px) {
+  nav #result {
+    font-size: 1em;
+  }
 }
 
 .container {
-  margin: 1em auto;
+  margin: 1.5em auto;
   display: flex;
   flex-flow: row wrap;
   max-width: 40em;
@@ -65,6 +86,7 @@ nav #result {
   background-color: white;
   padding-bottom: 30%;
   border-radius: 50%;
+  transition: background-color 0.5s;
 }
 
 /*# sourceMappingURL=style.css.map */
