@@ -38,21 +38,23 @@ const changeColor = (color) => {
 
 colorDisplay.textContent = pickedColor;
 
+const compareColors = (e) => {
+  const clickedColor = e.target.style.backgroundColor;
+  if (clickedColor === pickedColor) {
+    msgDisplay.textContent = 'YAY! THAT IS RIGHT!';
+    msgDisplay.style.color = pickedColor;
+    reset.textContent = 'Play again?';
+    changeColor(clickedColor);
+    h1.style.backgroundColor = clickedColor;
+  } else {
+    msgDisplay.textContent = 'Nope. Try again!';
+    e.target.style.backgroundColor = 'black';
+  }
+};
+
 for (let i = 0; i < circles.length; i += 1) {
   circles[i].style.backgroundColor = colors[i];
-  circles[i].addEventListener('click', () => {
-    const clickedColor = circles[i].style.backgroundColor;
-    if (clickedColor === pickedColor) {
-      msgDisplay.textContent = 'YAY! THAT IS RIGHT!';
-      msgDisplay.style.color = pickedColor;
-      reset.textContent = 'Play again?';
-      changeColor(clickedColor);
-      h1.style.backgroundColor = clickedColor;
-    } else {
-      msgDisplay.textContent = 'Nope. Try again!';
-      circles[i].style.backgroundColor = 'black';
-    }
-  });
+  circles[i].addEventListener('click', compareColors);
 }
 
 const resetGame = () => {
